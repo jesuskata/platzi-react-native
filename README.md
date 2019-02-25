@@ -27,3 +27,4 @@ Accedes a tu carpeta creada por react-native y puedes arrancar tu app con cualqu
 o
 
 `react-native run-android`
+
