@@ -1,7 +1,6 @@
 // Dependencies
 import React from 'react';
 import {
-  Text,
   FlatList
 } from 'react-native';
 
@@ -9,6 +8,7 @@ import {
 import SuggestionListLayout from './SuggestionListLayout';
 import Empty from './Empty';
 import VerticalSeparator from './VerticalSeparator';
+import Suggestion from './Suggestion';
 
 const list = [
   {
@@ -27,16 +27,18 @@ export default class SuggestionList extends React.Component {
 
   itemSeparator = () => <VerticalSeparator />;
 
+  renderItem = ({ item }) => <Suggestion {...item} />
+
   render() {
     return (
       <SuggestionListLayout
-        title="Shared for you"
+        title="Shared for you."
       >
         <FlatList
           data={list}
           ListEmptyComponent={this.renderEmpty}
           ItemSeparatorComponent={this.itemSeparator}
-          renderItem={({ item }) => <Text>{item.title}</Text>}
+          renderItem={this.renderItem}
         />
       </SuggestionListLayout>
     );
