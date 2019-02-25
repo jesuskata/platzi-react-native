@@ -16,9 +16,9 @@ Ya con lo anterior, debemos instalar (de manera global) el `cli` de *React Nativ
 
 `npm install -g react-native`
 
-Ahora es momento de crear nuestra aplicación, para ello es necesario hacer:
+Ahora es momento de crear nuestra aplicación, para ello es necesario hacer en tu Terminal:
 
-`react-native <nombre de tu proyecto en cameCase mode>`
+`react-native <nombre de tu proyecto en camelCase mode>`
 
 Accedes a tu carpeta creada por react-native y puedes arrancar tu app con cualquiera de los siguientes comandos:
 
@@ -28,3 +28,26 @@ o
 
 `react-native run-android`
 
+**NOTA!** Puede que tu ESLint te marque algunos errores en archivos JavaScript. Corrígelos para continuar trabajando bajo buenas prácticas.
+
+## Cambiando el fondo en iOS
+
+Hay un detalle que ocurre al querer manejar una estructura propia para tu aplicación, y es que al eliminar los componentes por default de `App.js` la pantalla del simulator de iPhone se pone negra.
+
+Para arreglar eso, nos dirijimos al archivo `AppDelegate.m` (lo puedes hacer desde tu editor de código o desde XCode), lo puedes encontrar en:
+
+**./ios/*yourApp*/AppDelegate.m**
+
+Dentro del archivo, busca las siguientes líneas de código:
+
+```objc
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+                                                      moduleName:@"platziVideoApp"
+                                               initialProperties:nil
+                                                   launchOptions:launchOptions];
+  rootView.backgroundColor = [UIColor blackColor];
+```
+
+Y comenta la última línea:
+
+`// rootView.backgroundColor = [UIColor blackColor];`
