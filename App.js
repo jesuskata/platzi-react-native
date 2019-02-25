@@ -7,6 +7,7 @@ import {
 // Components
 import Home from './src/main/components/Home';
 import Header from './src/main/components/Header';
+import SuggestionList from './src/main/components/SuggestionList';
 /* eslint-disable */
 type Props = {};
 export default class App extends Component<Props> {
@@ -17,6 +18,7 @@ export default class App extends Component<Props> {
         <Text>Search</Text>
         <Text>Categories</Text>
         <Text>Suggestion</Text>
+        <SuggestionList />
       </Home>
     );
   }
