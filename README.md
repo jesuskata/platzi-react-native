@@ -42,12 +42,20 @@ Dentro del archivo, busca las siguientes líneas de código:
 
 ```objc
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"platziVideoApp"
+                                               moduleName:@"platziVideoApp"
                                                initialProperties:nil
-                                                   launchOptions:launchOptions];
+                                               launchOptions:launchOptions];
   rootView.backgroundColor = [UIColor blackColor];
 ```
 
 Y comenta la última línea:
 
 `// rootView.backgroundColor = [UIColor blackColor];`
+
+## API de películas a usar
+
+La API que se usa en este proyecto es [YTS](https://yts.am/api), y el endpoint que se eligió para esto es:
+
+`https://yts.am/api/v2/list_movies.json`
+
+**NOTA!** Hay un momento en la App cuando creamos el archivo `api.js` en el folder `/utils` que la app parece crashearse. Te recomiendo que acabes el proceso que tienes de la app (`ctrl + c`) y lo vuelvas a correr (`react-native run-ios`).
