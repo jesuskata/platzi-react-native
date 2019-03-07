@@ -6,7 +6,7 @@ import {
 
 // Shared
 import {
-  renderEmpty, horizontalSeparator, renderItem, keyExtractor
+  renderEmpty, horizontalSeparator, renderCategoryItem, keyExtractor
 } from '../../share/uiFunctions';
 
 // Components
@@ -25,7 +25,7 @@ export default class CategoryList extends React.Component {
           data={categoryList}
           ListEmptyComponent={renderEmpty}
           ItemSeparatorComponent={horizontalSeparator}
-          renderItem={renderItem}
+          renderItem={renderCategoryItem}
         />
       </CategoryListLayout>
     )

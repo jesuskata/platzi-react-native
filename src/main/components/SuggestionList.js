@@ -6,7 +6,7 @@ import {
 
 // Shared
 import {
-  renderEmpty, verticalSeparator, renderItem, keyExtractor
+  renderEmpty, verticalSeparator, renderSuggestionItem, keyExtractor
 } from '../../share/uiFunctions';
 
 // Components
@@ -24,7 +24,7 @@ export default class SuggestionList extends React.Component {
           data={suggestionList}
           ListEmptyComponent={renderEmpty}
           ItemSeparatorComponent={verticalSeparator}
-          renderItem={renderItem}
+          renderItem={renderSuggestionItem}
         />
       </SuggestionListLayout>
     );
