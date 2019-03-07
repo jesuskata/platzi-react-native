@@ -8,6 +8,7 @@ import {
 import Home from './src/main/components/Home';
 import Header from './src/main/components/Header';
 import SuggestionList from './src/main/components/SuggestionList';
+import CategoryList from './src/main/components/CategoryList';
 
 // Utils
 import Api from './utils/api';
@@ -16,14 +17,18 @@ import Api from './utils/api';
 type Props = {};
 export default class App extends Component<Props> {
   state = {
-    suggestionList: []
+    suggestionList: [],
+    categoryList: []
   }
 
   async componentDidMount() {
     const movies = await Api.getSuggestions(10);
+    const categories = await Api.getMovies();
     console.log('movies: ', movies);
+    console.log('categories: ', categories);
     this.setState({
-      suggestionList: movies
+      suggestionList: movies,
+      categoryList: categories
     })
   }
 
@@ -34,6 +39,9 @@ export default class App extends Component<Props> {
         <Text>Search</Text>
         <Text>Categories</Text>
         <Text>Suggestion</Text>
+        <CategoryList
+          categoryList={this.state.categoryList}
+        />
         <SuggestionList
           suggestionList={this.state.suggestionList}
         />

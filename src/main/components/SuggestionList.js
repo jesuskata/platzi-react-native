@@ -4,22 +4,15 @@ import {
   FlatList
 } from 'react-native';
 
+// Shared
+import {
+  renderEmpty, verticalSeparator, renderItem, keyExtractor
+} from '../../share/uiFunctions';
+
 // Components
 import SuggestionListLayout from './SuggestionListLayout';
-import Empty from './Empty';
-import VerticalSeparator from './VerticalSeparator';
-import Suggestion from './Suggestion';
-
 
 export default class SuggestionList extends React.Component {
-  renderEmpty = () => <Empty text="There is no suggestions." />;
-
-  itemSeparator = () => <VerticalSeparator />;
-
-  renderItem = ({ item }) => <Suggestion {...item} />
-
-  keyExtractor = item => item.id.toString();
-
   render() {
     const { suggestionList } = this.props;
     return (
@@ -27,11 +20,11 @@ export default class SuggestionList extends React.Component {
         title="Shared for you."
       >
         <FlatList
-          keyExtractor={this.keyExtractor}
+          keyExtractor={keyExtractor}
           data={suggestionList}
-          ListEmptyComponent={this.renderEmpty}
-          ItemSeparatorComponent={this.itemSeparator}
-          renderItem={this.renderItem}
+          ListEmptyComponent={renderEmpty}
+          ItemSeparatorComponent={verticalSeparator}
+          renderItem={renderItem}
         />
       </SuggestionListLayout>
     );
