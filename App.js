@@ -15,9 +15,16 @@ import Api from './utils/api';
 /* eslint-disable */
 type Props = {};
 export default class App extends Component<Props> {
+  state = {
+    suggestionList: []
+  }
+
   async componentDidMount() {
     const movies = await Api.getSuggestions(10);
     console.log('movies: ', movies);
+    this.setState({
+      suggestionList: movies
+    })
   }
 
   render() {
@@ -27,7 +34,9 @@ export default class App extends Component<Props> {
         <Text>Search</Text>
         <Text>Categories</Text>
         <Text>Suggestion</Text>
-        <SuggestionList />
+        <SuggestionList
+          suggestionList={this.state.suggestionList}
+        />
       </Home>
     );
   }

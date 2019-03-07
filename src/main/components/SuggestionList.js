@@ -10,17 +10,6 @@ import Empty from './Empty';
 import VerticalSeparator from './VerticalSeparator';
 import Suggestion from './Suggestion';
 
-const list = [
-  {
-    title: 'Avengers',
-    key: '1'
-  },
-  {
-    title: 'Toy Story',
-    key: '2'
-  }
-];
-
 
 export default class SuggestionList extends React.Component {
   renderEmpty = () => <Empty text="There is no suggestions." />;
@@ -29,13 +18,17 @@ export default class SuggestionList extends React.Component {
 
   renderItem = ({ item }) => <Suggestion {...item} />
 
+  keyExtractor = item => item.id.toString();
+
   render() {
+    const { suggestionList } = this.props;
     return (
       <SuggestionListLayout
         title="Shared for you."
       >
         <FlatList
-          data={list}
+          keyExtractor={this.keyExtractor}
+          data={suggestionList}
           ListEmptyComponent={this.renderEmpty}
           ItemSeparatorComponent={this.itemSeparator}
           renderItem={this.renderItem}

@@ -7,22 +7,29 @@ import {
   StyleSheet
 } from 'react-native';
 
-export default function Suggestion() {
+export default function Suggestion(props) {
+  const {
+    title,
+    year,
+    rating,
+    medium_cover_image: coverImage, // medium_cover_image was changed to a camelCased variable
+    genres
+  } = props;
   return (
     <View style={styles.container}>
       <View style={styles.left}>
         <Image
           style={styles.cover}
-          source={require('../../../assets/logo.png')} // eslint-disable-line
+          source={{uri: coverImage}} // eslint-disable-line
         />
         <View style={styles.genre}>
-          <Text style={styles.genreText}>Action</Text>
+          <Text style={styles.genreText}>{genres[0]}</Text>
         </View>
       </View>
       <View style={styles.right}>
-        <Text style={styles.title}>Avengers</Text>
-        <Text style={styles.year}>2007</Text>
-        <Text style={styles.rating}>5 Stars</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.year}>{year}</Text>
+        <Text style={styles.rating}>{`${rating} Stars`}</Text>
       </View>
     </View>
   );
