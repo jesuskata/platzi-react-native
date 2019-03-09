@@ -2,7 +2,13 @@
 
 En este curso se va a llevar a cabo una aplicación para buscar películas y ver su descripción así como su trailer.
 
-## Instalación
+- [Curso de React Native de Platzi](#curso-de-react-native-de-platzi)
+  - [Instalacion](#instalacion)
+  - [Cambiando el fondo en iOS](#cambiando-el-fondo-en-ios)
+  - [API de peliculas a usar](#api-de-peliculas-a-usar)
+  - [Seccion para agregar un reproductor de video a la app](#seccion-para-agregar-un-reproductor-de-video-a-la-app)
+
+## Instalacion
 
 Lo primero que debemos tomar en cuenta es tener instaladas las librerías necesarias en tu computadora. Para este proyecto se utilizará una Mac, por tanto lo quedebemos tener instalado, previo a iniciar con todo, es lo siguiente:
 
@@ -52,10 +58,27 @@ Y comenta la última línea:
 
 `// rootView.backgroundColor = [UIColor blackColor];`
 
-## API de películas a usar
+## API de peliculas a usar
 
 La API que se usa en este proyecto es [YTS](https://yts.am/api), y el endpoint que se eligió para esto es:
 
 `https://yts.am/api/v2/list_movies.json`
 
 **NOTA!** Hay un momento en la App cuando creamos el archivo `api.js` en el folder `/utils` que la app parece crashearse. Te recomiendo que acabes el proceso que tienes de la app (`ctrl + c`) y lo vuelvas a correr (`react-native run-ios`).
+
+## Seccion para agregar un reproductor de video a la app
+
+En esta sección hay cosas específicas que hacer para poder tener un reproductor de video en la App. En este caso, vamos a instalar una librería de la comunidad [react-native-community](https://github.com/react-native-community) llamada [react-native-video](https://github.com/react-native-community/react-native-video).
+
+Hay que seguir los pasos de instalación ahí descritos:
+
+```bash
+npm install --save react-native-video
+# Ahora es necesario hacer link con los dispositivos móviles que vamos a usar
+# Corremos la siguiente línea, y se hace el link de manera estándard a iOS y Android
+react-native link react-native-video
+```
+
+Al finalizar el comando, verás una pantalla confirmando la relación, parecida a esta:
+
+![Confirmacion de Relacion](./assets/confirmacion-react-native-video.png)

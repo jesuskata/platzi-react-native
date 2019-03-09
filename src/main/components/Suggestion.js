@@ -29,7 +29,7 @@ export default function Suggestion(props) {
       <View style={styles.right}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.year}>{year}</Text>
-        <Text style={styles.rating}>{`${rating} Stars`}</Text>
+        <Text style={styles.rating}>{`⭐️ ${rating} Stars`}</Text>
       </View>
     </View>
   );
